@@ -1,0 +1,145 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.banner {
+  width: 1920px;
+  height: 1080px;
+  background-image: url('assets/banner.png');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 24px;
+}
+
+
+footer {
+  background-color: #240f0f;
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+}
+
+banner {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: -1;
+}
+
+.banner img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+header {
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+}
+
+header img {
+  max-width: 100%;
+  height: auto;
+}
+
+header h1 {
+  margin: 10px 0;
+}
+
+header p {
+  margin-bottom: 20px;
+}
+
+header a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+section h2 {
+  margin-top: 50px;
+  margin-left: 800px;
+}
+
+section p {
+  line-height: 1.5;
+  margin-left: 300px;
+}
+
+form {
+  margin-top: 10px;
+  margin-left: 600px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+input[type="submit"] {
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 5px 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 10px;
+}
+
+
+
+

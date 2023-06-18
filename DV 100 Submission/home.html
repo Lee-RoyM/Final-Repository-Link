@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+
+    <title>SuperSub</title>
+</head>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Banner Example</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">SuperSub</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="about us.html">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="home.html">Subs Of The Month<span class="sr-only">(current)</span></a>
+        </li>
+        
+          </li>
+
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+</head>
+<div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SuperSub</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="banner">
+    <h1>We Are Super Sub</h1>
+    <p>Freshly Baked and Made with Love</p>
+  </div>
+
+  <h2>About Us</h2>
+  <p>Sub Station is a new online submarine sandwich ordering service. We offer a variety of breads, toppings, sauces, and beverages to create your perfect submarine sandwich. We also offer a variety of discount codes to reduce the overall cost of your order.</p>
+  <p>We are committed to providing our customers with the best possible experience. We use only the freshest ingredients and our sandwiches are made to order. We also offer free shipping on orders over R139.</p>
+  <p>We hope you will try Sub Station today!</p>
+
+  <form id="customizationForm">
+    <h2>Build Your Sandwich</h2>
+    <p>Choose from a variety of breads, toppings, sauces, and beverages to create your perfect submarine sandwich.</p>
+    <div>
+      <label for="bread">Bread:</label>
+      <select id="bread" name="bread">
+        <option value="white">White Bread</option>
+        <option value="wheat">Wheat Bread</option>
+        <option value="sourdough">Sourdough Bread</option>
+      </select>
+    </div>
+    <div>
+      <label for="toppings">Toppings:</label>
+      <input type="checkbox" name="toppings" value="meat"> Meat
+      <input type="checkbox" name="toppings" value="cheese"> Cheese
+      <input type="checkbox" name="toppings" value="veggies"> Vegetables
+    </div>
+    <div>
+      <label for="sauce">Sauce:</label>
+      <select id="sauce" name="sauce">
+        <option value="mayo">Mayo</option>
+        <option value="mustard">Mustard</option>
+        <option value="ketchup">Ketchup</option>
+      </select>
+    </div>
+    <div>
+      <label for="beverage">Beverage:</label>
+      <select id="beverage" name="beverage">
+        <option value="water">Water</option>
+        <option value="soda">Soda</option>
+        <option value="juice">Juice</option>
+      </select>
+    </div>
+    <div>
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" min="1" value="1">
+    </div>
+    <div>
+      <label for="totalCost">Total Cost:</label>
+      <span id="totalCost">0</span> R
+    </div>
+    <button type="submit">Order</button>
+  </form>
+
+  <script>
+   
+    const form = document.getElementById('customizationForm');
+    const breadSelect = document.getElementById('bread');
+    const toppingsCheckboxes = document.querySelectorAll('input[name="toppings"]');
+    const sauceSelect = document.getElementById('sauce');
+    const beverageSelect = document.getElementById('beverage');
+    const quantityInput = document.getElementById('quantity');
+    const totalCostSpan = document.getElementById('totalCost');
+
+   
+    const costMap = {
+      bread: {
+        white: 10,
+        wheat: 12,
+        sourdough: 14
+      },
+      toppings: {
+        meat: 5,
+        cheese: 3,
+        veggies: 2
+      },
+      sauce: {
+        mayo: 1,
+        mustard: 1,
+        ketchup: 1
+      },
+      beverage: {
+        water: 0,
+        soda: 8,
+        juice: 10
+      }
+    };
+
+  
+    form.addEventListener('change', updateTotalCost);
+
+  
+    function updateTotalCost() {
+      let totalCost = 0;
+      totalCost += costMap.bread[breadSelect.value] || 0;
+      toppingsCheckboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+          totalCost += costMap.toppings[checkbox.value] || 0;
+        }
+      });
+      totalCost += costMap.sauce[sauceSelect.value] || 0;
+      totalCost += costMap.beverage[beverageSelect.value] || 0;
+
+      const quantity = parseInt(quantityInput.value);
+      totalCost *= quantity;
+
+      totalCostSpan.textContent = totalCost.toFixed(2);
+    }
+
+    
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      updateTotalCost();
+    });
+  </script>
+</body>
+
+<footer>
+  <p>Thank you For Your Support</p>
+</footer>
+</html>
